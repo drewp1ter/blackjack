@@ -24,10 +24,9 @@ class Game
     place_bet #делаем ставку
     give_out_cards # раздаем карты игрокам
     loop do
-      break if check_status(false) #а вдруг у игрока уже блекджек?
+      break if check_status(false) #проверяем статус игры или вдруг у игрока уже блекджек?
       display(@player, @dealer, @bet, false)
       procs[keypress.to_i].call rescue next 
-      break if check_status(false) #проверяем не закончилась ли игра
     end
     @bet = 0
     display(@player, @dealer, @bet, true)
